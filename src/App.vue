@@ -1,8 +1,9 @@
 <template>
   <v-app light>
-    <v-navigation-drawer temporary v-model="sideNav">
+    <v-navigation-drawer temporary v-model="sideNav" class="blue darken-2">
       <v-list>
         <v-list-tile
+          v-ripple="{ class: 'blue--text' }"
           v-for="item in menuItems"
           :key="item.title"
           :to="item.link">
@@ -21,7 +22,7 @@
         </v-list-tile>
       </v-list>
     </v-navigation-drawer>
-    <v-toolbar dark class="blue darken-2">
+    <v-toolbar dark class="blue darken-2" :scroll-off-screen="true" :scroll-target="'#scrolling-techniques'">
       <v-toolbar-side-icon
         @click.stop="sideNav = !sideNav"
         class="hidden-sm-and-up "></v-toolbar-side-icon>
@@ -52,6 +53,7 @@
     </main>
   </v-app>
 </template>
+
 
 <script>
   export default {
@@ -92,9 +94,10 @@
 
 <style type="text/css" lang="stylus">
   @import './stylus/main'
-  .btnFocus {
-    border-bottom:2px solid rgb(0,0,0);padding-bottom:10px}
 </style>
-<style type="text/css">
-  
-</style>
+<!-- //   @import './stylus/main'
+//   @import './assets/css/main.css'
+// </style>
+// <link href="./assets/css/toastr.min.css" rel="stylesheet"/>
+// <script type="text/javascript" src="./assets/js/jquery-3.2.1.min.js"></script>
+// <script type="text/javascript" src="./assets/js/toastr.min.js"></script>

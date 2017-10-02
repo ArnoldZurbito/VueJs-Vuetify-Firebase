@@ -8,7 +8,8 @@ import Profile from '@/components/User/Profile'
 import Signup from '@/components/User/Signup'
 import Signin from '@/components/User/Signin'
 import Meetup from '@/components/Meetup/Meetup'
-import AdminDashboard from '@/components/Admin/AdminDashboard'
+import AdminHome from '@/components/Admin/AdminHome'
+import Dashboard from '@/components/Admin/Pages/Dashboard'
 import Inbox from '@/components/Admin/Pages/Inbox'
 import User from '@/components/Admin/Pages/User'
 import AuthGuard from './auth-guard'
@@ -62,19 +63,29 @@ export default new Router({
     },
     {
       path: '/admin/dashboard',
-      name: 'AdminDashboard',
-      component: AdminDashboard
+      name: 'AdminHome',
+      component: AdminHome,
+      children: [
+         {
+           path: '/admin/dashboard',
+           component: Dashboard
+         },
+         {
+           path: '/admin/inbox',
+           component: Inbox
+         },
+         {
+           path: '/admin/user',
+           component: User
+         }
+       ]
     },
     {
-      path: '/admin/inbox',
-      name: 'Inbox',
-      component: Inbox
+    path: '*',
+    redirect: {
+      name: '/',
     },
-    {
-      path: '/admin/user',
-      name: 'User',
-      component: User
-    }
+  },
   ],
   mode: 'history'
 })

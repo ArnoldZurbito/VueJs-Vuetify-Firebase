@@ -1,5 +1,5 @@
 <template>
   <div>
-    <p>The Inbox Page</p>
+    <p>The Submenu1 Page</p>
   </div>
 </template>
